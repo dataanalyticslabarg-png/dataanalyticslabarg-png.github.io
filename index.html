@@ -1,126 +1,500 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <title>Data Analytics Lab</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Data Analytics Lab | Acompañamiento académico, análisis de datos y bioinformática</title>
+  <meta
+    name="description"
+    content="Acompañamiento en tesis, clases particulares en ciencias, análisis de datos, bioinformática y escritura científica."
+  />
+  <style>
+    :root {
+      --bg: #0b1220;
+      --bg-soft: #121a2b;
+      --card: #182235;
+      --line: #2b3956;
+      --text: #e8eefc;
+      --muted: #b9c4dd;
+      --primary: #6ea8fe;
+      --accent: #78e3d2;
+      --white: #ffffff;
+      --shadow: 0 10px 30px rgba(0,0,0,0.25);
+      --radius: 18px;
+      --max: 1120px;
+    }
 
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            background-color: #0f172a;
-            color: white;
-        }
+    * {
+      box-sizing: border-box;
+    }
 
-        header {
-            text-align: center;
-            padding: 60px 20px;
-            background: linear-gradient(90deg, #2563eb, #06b6d4);
-        }
+    html {
+      scroll-behavior: smooth;
+    }
 
-        header h1 {
-            margin: 0;
-            font-size: 2.5em;
-        }
+    body {
+      margin: 0;
+      font-family: Inter, Arial, Helvetica, sans-serif;
+      background:
+        radial-gradient(circle at top left, rgba(110,168,254,0.16), transparent 30%),
+        radial-gradient(circle at top right, rgba(120,227,210,0.10), transparent 25%),
+        var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
 
-        section {
-            padding: 40px 20px;
-            max-width: 900px;
-            margin: auto;
-        }
+    a {
+      color: var(--primary);
+      text-decoration: none;
+    }
 
-        h2 {
-            color: #38bdf8;
-        }
+    a:hover {
+      text-decoration: underline;
+    }
 
-        .card {
-            background: #1e293b;
-            padding: 20px;
-            margin: 15px 0;
-            border-radius: 10px;
-        }
+    .container {
+      width: min(var(--max), calc(100% - 32px));
+      margin: 0 auto;
+    }
 
-        footer {
-            text-align: center;
-            padding: 20px;
-            background: #020617;
-            font-size: 0.9em;
-        }
+    .nav {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      backdrop-filter: blur(10px);
+      background: rgba(11, 18, 32, 0.82);
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+    }
 
-        a {
-            color: #38bdf8;
-        }
+    .nav-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 14px 0;
+      gap: 16px;
+    }
 
-        .highlight {
-            color: #06b6d4;
-            font-weight: bold;
-        }
-    </style>
+    .brand {
+      font-weight: 700;
+      letter-spacing: 0.2px;
+      color: var(--white);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 18px;
+      flex-wrap: wrap;
+      font-size: 0.95rem;
+    }
+
+    .nav-links a {
+      color: var(--muted);
+    }
+
+    .hero {
+      padding: 84px 0 56px;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 28px;
+      align-items: center;
+    }
+
+    .badge {
+      display: inline-block;
+      padding: 8px 12px;
+      border: 1px solid rgba(110,168,254,0.25);
+      border-radius: 999px;
+      color: var(--accent);
+      background: rgba(255,255,255,0.03);
+      font-size: 0.92rem;
+      margin-bottom: 18px;
+    }
+
+    h1 {
+      font-size: clamp(2.2rem, 5vw, 4rem);
+      line-height: 1.08;
+      margin: 0 0 18px;
+      letter-spacing: -0.03em;
+    }
+
+    .lead {
+      font-size: 1.08rem;
+      color: var(--muted);
+      max-width: 760px;
+      margin-bottom: 28px;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 13px 18px;
+      border-radius: 12px;
+      font-weight: 600;
+      transition: transform 0.15s ease, opacity 0.15s ease;
+      border: 1px solid transparent;
+      box-shadow: var(--shadow);
+    }
+
+    .btn:hover {
+      transform: translateY(-1px);
+      text-decoration: none;
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, var(--primary), #4f8df7);
+      color: var(--white);
+    }
+
+    .btn-secondary {
+      background: transparent;
+      color: var(--text);
+      border-color: rgba(255,255,255,0.14);
+      box-shadow: none;
+    }
+
+    .hero-card {
+      background: linear-gradient(180deg, rgba(255,255,255,0.04), rgba(255,255,255,0.02));
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 24px;
+      padding: 24px;
+      box-shadow: var(--shadow);
+    }
+
+    .hero-card h3 {
+      margin-top: 0;
+      margin-bottom: 12px;
+      font-size: 1.1rem;
+    }
+
+    .hero-card ul {
+      padding-left: 18px;
+      margin: 0;
+      color: var(--muted);
+    }
+
+    .section {
+      padding: 30px 0 70px;
+    }
+
+    .section h2 {
+      font-size: 1.9rem;
+      margin: 0 0 14px;
+      letter-spacing: -0.02em;
+    }
+
+    .section-intro {
+      color: var(--muted);
+      max-width: 820px;
+      margin-bottom: 28px;
+    }
+
+    .grid-3,
+    .grid-2 {
+      display: grid;
+      gap: 18px;
+    }
+
+    .grid-3 {
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+    .grid-2 {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    .card {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 22px;
+      box-shadow: var(--shadow);
+      height: 100%;
+    }
+
+    .card h3 {
+      margin-top: 0;
+      margin-bottom: 10px;
+      font-size: 1.12rem;
+    }
+
+    .card p {
+      margin: 0;
+      color: var(--muted);
+    }
+
+    .pill-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 14px;
+    }
+
+    .pill {
+      display: inline-block;
+      padding: 8px 12px;
+      border-radius: 999px;
+      background: rgba(110,168,254,0.10);
+      color: #dce8ff;
+      border: 1px solid rgba(110,168,254,0.16);
+      font-size: 0.92rem;
+    }
+
+    .contact-box {
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 18px;
+      align-items: stretch;
+    }
+
+    .contact-highlight {
+      display: inline-block;
+      font-size: 1.1rem;
+      font-weight: 700;
+      margin-top: 8px;
+      word-break: break-word;
+    }
+
+    .footer {
+      border-top: 1px solid rgba(255,255,255,0.08);
+      padding: 24px 0 36px;
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    @media (max-width: 920px) {
+      .hero-grid,
+      .grid-3,
+      .grid-2,
+      .contact-box {
+        grid-template-columns: 1fr;
+      }
+
+      .hero {
+        padding-top: 60px;
+      }
+
+      .nav-inner {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+    }
+  </style>
 </head>
-
 <body>
-
-<header>
-    <h1>Data Analytics Lab</h1>
-    <p>Acompañamiento académico y análisis de datos científicos</p>
-</header>
-
-<section>
-    <h2>👩‍🔬 ¿En qué puedo ayudarte?</h2>
-
-    <div class="card">
-        <h3>Acompañamiento en tesis</h3>
-        <p>Te acompaño durante todo el proceso: desde la idea inicial hasta la redacción final. Orientación metodológica, análisis de resultados y escritura académica.</p>
+  <nav class="nav">
+    <div class="container nav-inner">
+      <div class="brand">Data Analytics Lab</div>
+      <div class="nav-links">
+        <a href="#servicios">Servicios</a>
+        <a href="#equipo">Equipo</a>
+        <a href="#enfoque">Enfoque</a>
+        <a href="#contacto">Contacto</a>
+      </div>
     </div>
+  </nav>
 
-    <div class="card">
-        <h3>Clases particulares</h3>
-        <p>Clases personalizadas en <span class="highlight">biología, química, matemática y física</span>. Nivel secundario, universitario y posgrado.</p>
+  <header class="hero">
+    <div class="container hero-grid">
+      <div>
+        <div class="badge">Acompañamiento académico y consultoría científica</div>
+        <h1>Te ayudamos a transformar ideas, datos y resultados en trabajo académico de calidad.</h1>
+        <p class="lead">
+          Brindamos acompañamiento en tesis, clases particulares en ciencias, análisis de datos,
+          bioinformática y apoyo en escritura científica. Trabajamos con una mirada rigurosa,
+          clara y personalizada, adaptada a cada etapa del proceso.
+        </p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="#contacto">Escribinos</a>
+          <a class="btn btn-secondary" href="#servicios">Ver servicios</a>
+        </div>
+      </div>
+
+      <aside class="hero-card">
+        <h3>Áreas en las que trabajamos</h3>
+        <ul>
+          <li>Tesis de grado, maestría y doctorado</li>
+          <li>Clases particulares en biología, química, matemática y física</li>
+          <li>Análisis estadístico y visualización de datos</li>
+          <li>Bioinformática con R, Python, Bash y Nextflow</li>
+          <li>Redacción y revisión de papers científicos</li>
+        </ul>
+      </aside>
     </div>
+  </header>
 
-    <div class="card">
-        <h3>Análisis de datos y bioinformática</h3>
-        <p>Trabajo con <span class="highlight">R, Python, Bash y Nextflow</span>. Análisis estadístico, pipelines, procesamiento de datos ómicos y visualización.</p>
-    </div>
-
-    <div class="card">
-        <h3>Escritura científica</h3>
-        <p>Asistencia en redacción de papers, informes y proyectos. Corrección de estilo, estructura y claridad científica.</p>
-    </div>
-</section>
-
-<section>
-    <h2>📊 Enfoque de trabajo</h2>
-
-    <div class="card">
-        <p>
-        Trabajo de forma clara y personalizada. La idea es que no solo resuelvas un problema puntual,
-        sino que también entiendas lo que estás haciendo y puedas avanzar de manera independiente.
+  <main>
+    <section class="section" id="servicios">
+      <div class="container">
+        <h2>Servicios</h2>
+        <p class="section-intro">
+          Ofrecemos apoyo puntual o acompañamiento continuo, según la necesidad de cada persona,
+          proyecto o equipo de investigación.
         </p>
 
-        <p>
-        Me enfoco en explicar conceptos complejos de forma simple, adaptándome a tu nivel y objetivos.
+        <div class="grid-3">
+          <article class="card">
+            <h3>Acompañamiento en tesis</h3>
+            <p>
+              Orientación en planteo del problema, diseño metodológico, análisis de resultados,
+              organización de capítulos y revisión integral del manuscrito.
+            </p>
+          </article>
+
+          <article class="card">
+            <h3>Clases particulares</h3>
+            <p>
+              Clases personalizadas en biología, química y apoyo en matemática y física,
+              para nivel secundario, universitario y formación avanzada.
+            </p>
+          </article>
+
+          <article class="card">
+            <h3>Análisis de datos</h3>
+            <p>
+              Limpieza, exploración, análisis estadístico, visualización e interpretación
+              de datos experimentales y observacionales.
+            </p>
+          </article>
+
+          <article class="card">
+            <h3>Bioinformática</h3>
+            <p>
+              Procesamiento de datos ómicos, análisis reproducible, automatización de pipelines
+              y soporte en entornos Linux/HPC.
+            </p>
+          </article>
+
+          <article class="card">
+            <h3>Escritura científica</h3>
+            <p>
+              Asistencia en redacción de papers, informes, becas, proyectos y secciones
+              de resultados, discusión y metodología.
+            </p>
+          </article>
+
+          <article class="card">
+            <h3>Soporte técnico y académico</h3>
+            <p>
+              Acompañamiento para destrabar análisis, interpretar resultados y ganar autonomía
+              en herramientas computacionales y científicas.
+            </p>
+          </article>
+        </div>
+
+        <div class="pill-list">
+          <span class="pill">R</span>
+          <span class="pill">Python</span>
+          <span class="pill">Bash</span>
+          <span class="pill">Nextflow</span>
+          <span class="pill">Bioinformática</span>
+          <span class="pill">Análisis estadístico</span>
+          <span class="pill">Visualización</span>
+          <span class="pill">Escritura académica</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="equipo">
+      <div class="container">
+        <h2>Sobre el equipo</h2>
+        <p class="section-intro">
+          Somos un equipo con formación científica y experiencia en investigación, docencia
+          y análisis de datos. Combinamos mirada experimental, capacidad analítica y experiencia
+          en comunicación académica.
         </p>
-    </div>
-</section>
 
-<section>
-    <h2>📩 Contacto</h2>
+        <div class="grid-2">
+          <article class="card">
+            <h3>Perfil 1</h3>
+            <p>
+              Formación en Biotecnología y Biología Molecular, con doctorado en Ciencias Biológicas
+              y más de diez años de experiencia en investigación. Trayectoria en análisis de datos
+              biológicos, bioinformática, metagenómica, integración multi-ómica, programación en R,
+              Python y Bash, y trabajo en entornos Linux/HPC. Además, experiencia docente en biología,
+              química y análisis de expresión génica y datos de secuenciación.
+            </p>
+          </article>
 
-    <div class="card">
-        <p>Si querés consultar o coordinar, podés escribirme:</p>
+          <article class="card">
+            <h3>Perfil 2</h3>
+            <p>
+              Formación y experiencia en investigación en ciencias biológicas y biomédicas, con
+              participación en publicaciones científicas en áreas vinculadas con neurobiología,
+              biología celular y biotecnología vegetal. Aporta una mirada interdisciplinaria orientada
+              al análisis, la interpretación de resultados y el acompañamiento académico.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
 
-        <p>
-        📧 <strong>dataanalyticslabarg@gmail.com</strong>
+    <section class="section" id="enfoque">
+      <div class="container">
+        <h2>Nuestro enfoque</h2>
+        <p class="section-intro">
+          Trabajamos con una modalidad personalizada, clara y respetuosa de los tiempos de cada proceso.
+          La idea no es solo resolver una tarea puntual, sino también ayudarte a comprender lo que estás haciendo
+          y a avanzar con más seguridad y autonomía.
         </p>
 
-        <p>Respond o a la brevedad 🙂</p>
+        <div class="grid-3">
+          <article class="card">
+            <h3>Personalizado</h3>
+            <p>Cada consulta se adapta al nivel, la etapa y los objetivos concretos de quien consulta.</p>
+          </article>
+
+          <article class="card">
+            <h3>Rigurosidad científica</h3>
+            <p>Priorizamos la calidad metodológica, la interpretación correcta y la comunicación clara.</p>
+          </article>
+
+          <article class="card">
+            <h3>Explicaciones claras</h3>
+            <p>Buscamos bajar a tierra conceptos complejos sin perder precisión técnica.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="contacto">
+      <div class="container">
+        <h2>Contacto</h2>
+        <div class="contact-box">
+          <div class="card">
+            <h3>¿Querés hacer una consulta?</h3>
+            <p>
+              Si necesitás apoyo para una tesis, clases particulares, análisis de datos,
+              bioinformática o escritura científica, escribinos y contanos brevemente tu caso.
+            </p>
+            <span class="contact-highlight">dataanalyticslabarg@gmail.com</span>
+          </div>
+
+          <div class="card">
+            <h3>Modalidad de trabajo</h3>
+            <p>
+              Trabajo remoto, seguimiento por etapas y acompañamiento puntual o continuo,
+              según el tipo de proyecto y necesidad.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      © 2026 Data Analytics Lab · Acompañamiento académico, análisis de datos y bioinformática
     </div>
-</section>
-
-<footer>
-    <p>© 2026 Data Analytics Lab</p>
-</footer>
-
+  </footer>
 </body>
 </html>
