@@ -3,17 +3,22 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>LOGOS · Data Analytics Lab</title>
+  <title> LOGOS-Data Analytics Lab | Acompañamiento académico, análisis de datos y bioinformática</title>
 
   <style>
     :root {
       --bg: #0b1220;
+      --bg-soft: #121a2b;
       --card: #182235;
       --line: #2b3956;
       --text: #e8eefc;
       --muted: #b9c4dd;
       --primary: #6ea8fe;
       --accent: #78e3d2;
+      --white: #ffffff;
+      --shadow: 0 10px 30px rgba(0,0,0,0.25);
+      --radius: 18px;
+      --max: 1120px;
     }
 
     body {
@@ -24,15 +29,13 @@
     }
 
     .container {
-      width: 90%;
-      max-width: 1000px;
-      margin: auto;
+      width: min(var(--max), calc(100% - 32px));
+      margin: 0 auto;
     }
 
     .nav {
-      background: #0b1220;
-      padding: 15px 0;
-      border-bottom: 1px solid #2b3956;
+      padding: 14px 0;
+      border-bottom: 1px solid rgba(255,255,255,0.06);
     }
 
     .brand {
@@ -50,16 +53,6 @@
 
     .lead {
       color: var(--muted);
-    }
-
-    .btn {
-      display: inline-block;
-      padding: 10px 15px;
-      margin-top: 15px;
-      background: var(--primary);
-      color: white;
-      border-radius: 8px;
-      text-decoration: none;
     }
 
     .section {
@@ -80,11 +73,19 @@
       gap: 15px;
     }
 
-    iframe {
-      width: 100%;
-      border-radius: 10px;
-      border: none;
-      background: white;
+    .contact-highlight {
+      font-weight: bold;
+    }
+
+    .small-note {
+      margin-top: 10px;
+      color: var(--muted);
+      font-size: 0.9em;
+    }
+
+    a {
+      color: var(--primary);
+      text-decoration: none;
     }
 
     @media (max-width: 800px) {
@@ -99,13 +100,13 @@
 
 <nav class="nav">
   <div class="container">
-    <div class="brand">LOGOS · Data Analytics Lab</div>
+    <div class="brand">LOGOS-Data Analytics Lab</div>
   </div>
 </nav>
 
 <header>
   <div class="container">
-    <h1>Convertimos ideas y datos en trabajo académico de calidad</h1>
+    <h1>Te ayudamos a transformar ideas y datos en trabajo académico de calidad</h1>
     <p class="lead">
       Acompañamiento en tesis, análisis de datos, bioinformática y escritura científica.
     </p>
@@ -155,24 +156,16 @@
     <div class="card">
       <p>Podés escribirnos directamente:</p>
 
-      <p>
-        <a href="mailto:dataanalyticslabarg@gmail.com">
-          dataanalyticslabarg@gmail.com
-        </a>
-      </p>
-
-      <a class="btn" href="https://docs.google.com/forms/d/e/1FAIpQLSedLdjT_7pnmEfuN4BnYwyr5cCJ7c_t9c9TdwtJUBuVe3SF-A/viewform" target="_blank">
-        Completar formulario
+      <a class="contact-highlight" href="mailto:dataanalyticslabarg@gmail.com">
+        dataanalyticslabarg@gmail.com
       </a>
-    </div>
 
-    <div class="card">
-      <h3>Formulario de consulta</h3>
-
-      <iframe
-        src="https://docs.google.com/forms/d/e/1FAIpQLSedLdjT_7pnmEfuN4BnYwyr5cCJ7c_t9c9TdwtJUBuVe3SF-A/viewform?embedded=true"
-        height="1100">
-      </iframe>
+      <div class="small-note">
+        También podés completar este 
+        <a href="https://docs.google.com/forms/d/e/1FAIpQLSedLdjT_7pnmEfuN4BnYwyr5cCJ7c_t9c9TdwtJUBuVe3SF-A/viewform" target="_blank">
+          formulario de contacto
+        </a>.
+      </div>
     </div>
 
   </div>
@@ -180,7 +173,7 @@
 
 <footer class="section">
   <div class="container">
-    © 2026 LOGOS · Data Analytics Lab
+    © 2026 LOGOS-Data Analytics Lab
   </div>
 </footer>
 
